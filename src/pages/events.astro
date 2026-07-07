@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import events from "../../data/events.json";
+
+const sortedEvents = [...events].sort(
+  (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+);
+
+function formatDate(dateStr: string) {
+  return new Date(`${dateStr}T00:00:00`).toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+---
+
+<BaseLayout title="Events" description="Upcoming markets, pop-ups, and pre-order windows.">
+  <section class="section">
+    <div class="container">
+      <h1>Events &amp; Pre-Orders</h1>
+      <p>Find us at these upcoming markets and pop-ups, or watch here for pre-order windows.</p>
+
+      <div class="event-list">
+        {
+          sortedEvents.map((event) => (
+            <article class="card event-card">
+              <p class="event-card__date">{formatDate(event.date)}</p>
+              <h2>{event.title}</h2>
+              <p class="event-card__location">{event.location}</p>
+              <p>{event.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .event-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+
+  .event-card {
+    padding: var(--space-md);
+  }
+
+  .event-card__date {
+    color: var(--color-accent-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .event-card__location {
+    color: var(--color-text-muted);
+  }
+</style>

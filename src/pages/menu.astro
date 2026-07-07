@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProductCard from "../components/ProductCard.astro";
+import products from "../../data/products.json";
+
+const categories = [...new Set(products.map((p) => p.category))];
+---
+
+<BaseLayout title="Menu" description="Full menu of pies, cookies, muffins, and breads.">
+  <section class="section">
+    <div class="container">
+      <h1>Menu</h1>
+      <p>
+        Prices are per item as noted below and may change seasonally. Allergen info is listed on
+        every item, if you have a specific concern please reach out before ordering.
+      </p>
+
+      {
+        categories.map((category) => (
+          <div class="menu-category">
+            <h2>{category}</h2>
+            <div class="grid">
+              {products
+                .filter((p) => p.category === category)
+                .map((product) => (
+                  <ProductCard product={product} />
+                ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .menu-category {
+    margin-bottom: var(--space-lg);
+  }
+</style>

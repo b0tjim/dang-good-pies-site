@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+import { analytics } from "../config/analytics";
+---
+
+<BaseLayout title="Privacy Policy" description={`Privacy policy for ${site.businessName}.`}>
+  <section class="section">
+    <div class="container prose">
+      <h1>Privacy Policy</h1>
+      <p class="notice">
+        This is placeholder starter text, not legal advice. Please review and finalize it
+        yourself, ideally with a professional familiar with your state's requirements, before
+        relying on it.
+      </p>
+
+      <p>
+        {site.businessName} is a small, home-based cottage food business. We are not a large
+        retailer, and we collect the minimum information needed to run this website and fulfill
+        orders.
+      </p>
+
+      <h2>Information We Collect</h2>
+      <p>This site may collect the following types of information:</p>
+      <ul>
+        <li>
+          <strong>Contact information you provide directly</strong>, such as when you email us to
+          ask a question or place an order (name, email address, and any details you choose to
+          share).
+        </li>
+        <li>
+          <strong>Basic usage and analytics data</strong>, such as pages visited and general
+          location/device information, if analytics is enabled on this site.
+        </li>
+        <li>
+          <strong>Cookies</strong>, small files stored in your browser, which may be used for
+          basic site functionality and, if enabled, analytics.
+        </li>
+      </ul>
+
+      <h2>Google Analytics 4</h2>
+      <p>
+        {
+          analytics.enabled ? (
+            <>
+              This site currently uses Google Analytics 4 to understand how visitors use the
+              site (for example, which pages are popular). Google Analytics may use cookies and
+              collect information such as pages visited, approximate location, and device type.
+              This data is used in aggregate and is not used to personally identify you.
+            </>
+          ) : (
+            <>
+              This site does not currently use Google Analytics or any other analytics/tracking
+              service. If that changes in the future, this section will be updated to describe
+              what is collected and why, before any tracking is turned on.
+            </>
+          )
+        }
+      </p>
+
+      <h2>How We Use Information</h2>
+      <p>
+        We use the information we collect to respond to inquiries, fulfill orders, and understand
+        how people use this site so we can improve it. We do not sell personal information to
+        anyone.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        You'll see a small notice on this site about cookies. You can typically control or delete
+        cookies through your browser settings. Blocking cookies may affect how well some parts of
+        the site work.
+      </p>
+
+      <h2>Third Parties</h2>
+      <p>
+        We do not sell your personal information. We may share limited information with service
+        providers who help us run this website or fulfill orders (for example, an email provider),
+        and, if enabled, with Google Analytics as described above.
+      </p>
+
+      <h2>Contact Us</h2>
+      <p>
+        If you have questions about this policy or how your information is handled, contact us at{" "}
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this policy from time to time, for example if we add new tools like
+        analytics. We'll update the date below when that happens.
+      </p>
+      <p class="notice">Last updated: placeholder — update this date when you finalize this page.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose {
+    max-width: 70ch;
+  }
+
+  .notice {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-sm);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+</style>

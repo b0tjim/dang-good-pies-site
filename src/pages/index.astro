@@ -1,17 +1,89 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProductCard from "../components/ProductCard.astro";
+import site from "../../data/site.json";
+import products from "../../data/products.json";
 
+const featuredProducts = products.filter((p) => p.featured);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home">
+  <section class="section hero">
+    <div class="container hero__inner">
+      <div>
+        <h1>{site.businessName}</h1>
+        <p class="hero__tagline">{site.tagline}</p>
+        <p>{site.shortBlurb}</p>
+        <div class="hero__actions">
+          <a class="button" href="/menu">See the Menu</a>
+          <a class="button button--outline" href="/events">Upcoming Events</a>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="presentation">
+          <circle cx="100" cy="100" r="90" fill="var(--color-bg-alt)" />
+          <path d="M100 30 A70 70 0 0 1 170 100 L100 100 Z" fill="var(--color-accent)" />
+          <path d="M100 30 A70 70 0 0 0 30 100 L100 100 Z" fill="var(--color-accent-dark)" />
+          <path d="M30 100 A70 70 0 0 0 100 170 L100 100 Z" fill="var(--color-accent)" />
+          <path d="M170 100 A70 70 0 0 1 100 170 L100 100 Z" fill="var(--color-accent-dark)" />
+          <circle cx="100" cy="100" r="14" fill="var(--color-bg)" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Featured This Week</h2>
+      <div class="grid">
+        {featuredProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-teaser">
+      <h2>A little about us</h2>
+      <p>{site.shortBlurb} Want the full story? Visit the About page to learn how it all started.</p>
+      <a class="button button--outline" href="/about">Read Our Story</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .hero__inner > div:first-child {
+    flex: 2;
+    min-width: 280px;
+  }
+
+  .hero__art {
+    flex: 1;
+    min-width: 200px;
+    max-width: 260px;
+  }
+
+  .hero__tagline {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-top: var(--space-md);
+  }
+
+  .about-teaser {
+    text-align: center;
+    max-width: 65ch;
+    margin: 0 auto;
+  }
+</style>

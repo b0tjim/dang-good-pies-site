@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+---
+
+<BaseLayout title="About" description={`The story behind ${site.businessName}.`}>
+  <section class="section">
+    <div class="container prose">
+      <h1>Our Story</h1>
+      <p>
+        {site.businessName} started the way most good baking stories do: a home kitchen, a
+        favorite family recipe, and more pie than one household could possibly eat. Friends and
+        neighbors kept asking for "just one more," and eventually that turned into a small
+        cottage food business.
+      </p>
+      <p>
+        Every pie, cookie, and loaf is made in small batches with real ingredients, no shortcuts,
+        and the same care you'd expect from a friend's kitchen rather than a factory line. We bake
+        to order as much as possible, so what you get is fresh, not sitting on a shelf.
+      </p>
+      <p>
+        {site.businessName} operates as a licensed home-based cottage food operation. That means
+        smaller batches, a shorter menu, and a lot more attention paid to each item that goes out
+        the door.
+      </p>
+      <p>
+        Have a question, a special request, or want to place an order? Reach out any time at{" "}
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose {
+    max-width: 70ch;
+  }
+</style>

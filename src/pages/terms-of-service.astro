@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+---
+
+<BaseLayout title="Terms of Service" description={`Terms of service for ${site.businessName}.`}>
+  <section class="section">
+    <div class="container prose">
+      <h1>Terms of Service</h1>
+      <p class="notice">
+        This is placeholder starter text, not legal advice. Please review and finalize it
+        yourself, ideally with a professional familiar with your state's cottage food
+        regulations, before relying on it.
+      </p>
+
+      <h2>About This Site</h2>
+      <p>
+        This website is operated by {site.businessName}, a home-based cottage food operation. By
+        using this site, you agree to these terms.
+      </p>
+
+      <h2>Cottage Food Operation</h2>
+      <p>
+        {site.businessName} operates as a cottage food business under applicable state law. This
+        section should be replaced with the specific disclosure language required by your state's
+        cottage food program, for example any required statement about the food being made in a
+        home kitchen not inspected by a health department.
+      </p>
+      <p class="notice">
+        Add your state-specific cottage food disclosure language here before publishing this page
+        for real.
+      </p>
+
+      <h2>Menu, Pricing &amp; Availability</h2>
+      <p>
+        Menu items, descriptions, prices, and availability are subject to change without notice.
+        Featured items, seasonal flavors, and pricing shown on this site are provided for general
+        information and may not reflect final availability at the time of your order.
+      </p>
+
+      <h2>Orders</h2>
+      <p>
+        Orders placed through email, phone, or in person are subject to confirmation. We'll do our
+        best to accommodate requests, but availability, ingredients, and scheduling may limit what
+        we can fulfill.
+      </p>
+
+      <h2>No Warranties</h2>
+      <p>
+        This site and its contents are provided "as is" without warranties of any kind, express or
+        implied. While we take care in preparing our food, {site.businessName} makes no guarantees
+        regarding suitability for specific dietary needs beyond the allergen information listed on
+        the Menu page. Please tell us about any allergies or dietary restrictions before ordering.
+      </p>
+
+      <h2>Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, {site.businessName} is not liable for any indirect,
+        incidental, or consequential damages arising from your use of this site or purchase of any
+        products.
+      </p>
+
+      <h2>Changes to These Terms</h2>
+      <p>
+        We may update these terms from time to time. Continued use of the site after changes are
+        posted means you accept the updated terms.
+      </p>
+
+      <h2>Contact Us</h2>
+      <p>
+        Questions about these terms? Reach out at{" "}
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+      </p>
+      <p class="notice">Last updated: placeholder — update this date when you finalize this page.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose {
+    max-width: 70ch;
+  }
+
+  .notice {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-sm);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+</style>
