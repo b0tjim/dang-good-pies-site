@@ -1,0 +1,84 @@
+---
+interface Product {
+  id: string;
+  name: string;
+  category: string;
+  price: number;
+  description: string;
+  image: string;
+  available: boolean;
+  featured: boolean;
+  allergens: string[];
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+---
+
+<article class:list={["card", "product-card", { "product-card--featured": product.featured }]}>
+  <img src={product.image} alt={product.name} class="product-card__image" loading="lazy" />
+  <div class="product-card__body">
+    <div class="product-card__heading">
+      <h3>{product.name}</h3>
+      {product.featured && <span class="badge">Featured</span>}
+    </div>
+    <p class="product-card__price">${product.price.toFixed(2)}</p>
+    {!product.available && <p class="badge product-card__unavailable">Currently unavailable</p>}
+    <p>{product.description}</p>
+    {
+      product.allergens.length > 0 && (
+        <p class="allergens">Contains: {product.allergens.join(", ")}</p>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .product-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card--featured {
+    border-color: var(--color-accent);
+    border-width: 2px;
+  }
+
+  .product-card__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .product-card__body {
+    padding: var(--space-sm);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xs);
+  }
+
+  .product-card__heading h3 {
+    margin: 0;
+  }
+
+  .product-card__price {
+    color: var(--color-accent-dark);
+    font-weight: 700;
+    margin: var(--space-xs) 0;
+  }
+
+  .product-card__unavailable {
+    background-color: var(--color-border);
+    color: var(--color-text-muted);
+  }
+</style>

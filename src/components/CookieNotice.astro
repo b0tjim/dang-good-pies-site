@@ -1,0 +1,78 @@
+---
+import { analytics } from "../config/analytics";
+
+const message = analytics.enabled
+  ? "This site uses Google Analytics 4 to understand how visitors use it. No personal information is sold. See our Privacy Policy for details."
+  : "This site does not currently use analytics or tracking cookies. If that changes, this notice will be updated. See our Privacy Policy for details.";
+---
+
+<div id="cookie-notice" class="cookie-notice" hidden>
+  <div class="container cookie-notice__inner">
+    <p class="cookie-notice__text">
+      {message} <a href="/privacy-policy">Privacy Policy</a>
+    </p>
+    <button id="cookie-notice-dismiss" type="button" class="button button--outline cookie-notice__dismiss">
+      Got it
+    </button>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = "dgp-cookie-notice-dismissed";
+  const notice = document.getElementById("cookie-notice");
+  const dismissButton = document.getElementById("cookie-notice-dismiss");
+
+  if (notice && !localStorage.getItem(STORAGE_KEY)) {
+    notice.hidden = false;
+  }
+
+  dismissButton?.addEventListener("click", () => {
+    localStorage.setItem(STORAGE_KEY, "1");
+    if (notice) notice.hidden = true;
+  });
+</script>
+
+<style>
+  .cookie-notice {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    z-index: 50;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .cookie-notice__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+  }
+
+  .cookie-notice__text {
+    margin: 0;
+    font-size: 0.9rem;
+    max-width: 60ch;
+  }
+
+  .cookie-notice__text a {
+    color: var(--color-bg);
+    text-decoration: underline;
+  }
+
+  .cookie-notice__dismiss {
+    flex-shrink: 0;
+    color: var(--color-bg);
+    border-color: var(--color-bg);
+  }
+
+  .cookie-notice__dismiss:hover {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+</style>
