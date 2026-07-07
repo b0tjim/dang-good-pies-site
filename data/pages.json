@@ -1,0 +1,50 @@
+[
+  {
+    "id": "home",
+    "label": "Home",
+    "path": "/",
+    "showInNav": true,
+    "showInFooter": false,
+    "order": 1
+  },
+  {
+    "id": "about",
+    "label": "About",
+    "path": "/about",
+    "showInNav": true,
+    "showInFooter": false,
+    "order": 2
+  },
+  {
+    "id": "menu",
+    "label": "Menu",
+    "path": "/menu",
+    "showInNav": true,
+    "showInFooter": false,
+    "order": 3
+  },
+  {
+    "id": "events",
+    "label": "Events",
+    "path": "/events",
+    "showInNav": true,
+    "showInFooter": false,
+    "order": 4
+  },
+  {
+    "id": "privacy-policy",
+    "label": "Privacy Policy",
+    "path": "/privacy-policy",
+    "showInNav": false,
+    "showInFooter": true,
+    "order": 5
+  },
+  {
+    "id": "terms-of-service",
+    "label": "Terms of Service",
+    "path": "/terms-of-service",
+    "showInNav": false,
+    "showInFooter": true,
+    "order": 6
+  }
+]

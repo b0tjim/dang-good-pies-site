@@ -1,0 +1,90 @@
+[
+  {
+    "id": "blueberry-pie",
+    "name": "Blueberry Pie",
+    "category": "Pie",
+    "price": 28.00,
+    "description": "A double-crust classic packed with sweet-tart blueberries and a hint of lemon. Baked until the top is deep golden and the filling is bubbling.",
+    "image": "/images/products/blueberry-pie.svg",
+    "available": true,
+    "featured": false,
+    "allergens": ["gluten", "dairy"]
+  },
+  {
+    "id": "apple-pie",
+    "name": "Apple Pie",
+    "category": "Pie",
+    "price": 26.00,
+    "description": "Tender spiced apples wrapped in a flaky, all-butter crust. The one everyone asks for by name.",
+    "image": "/images/products/apple-pie.svg",
+    "available": true,
+    "featured": true,
+    "allergens": ["gluten", "dairy"]
+  },
+  {
+    "id": "peach-pie",
+    "name": "Peach Pie",
+    "category": "Pie",
+    "price": 28.00,
+    "description": "Juicy peaches folded into a lightly spiced filling, baked into a golden lattice crust. A warm-weather favorite.",
+    "image": "/images/products/peach-pie.svg",
+    "available": true,
+    "featured": false,
+    "allergens": ["gluten", "dairy"]
+  },
+  {
+    "id": "strawberry-lemonade-pie",
+    "name": "Strawberry Lemonade Pie",
+    "category": "Pie",
+    "price": 30.00,
+    "description": "A bright, no-bake summer pie with sweet strawberries and a tangy lemonade filling in a graham crust.",
+    "image": "/images/products/strawberry-lemonade-pie.svg",
+    "available": true,
+    "featured": true,
+    "allergens": ["gluten", "dairy", "eggs"]
+  },
+  {
+    "id": "strawberry-rhubarb-pie",
+    "name": "Strawberry Rhubarb Pie",
+    "category": "Pie",
+    "price": 29.00,
+    "description": "The classic sweet-and-tart pairing, baked into a buttery double crust until perfectly set.",
+    "image": "/images/products/strawberry-rhubarb-pie.svg",
+    "available": true,
+    "featured": false,
+    "allergens": ["gluten", "dairy"]
+  },
+  {
+    "id": "cookies",
+    "name": "Cookies",
+    "category": "Cookies & Bars",
+    "price": 14.00,
+    "description": "A dozen soft-baked, thick cookies made fresh to order. Ask about current flavors when you order.",
+    "image": "/images/products/cookies.svg",
+    "available": true,
+    "featured": true,
+    "allergens": ["gluten", "dairy", "eggs"]
+  },
+  {
+    "id": "chocolate-chip-muffins",
+    "name": "Chocolate Chip Muffins",
+    "category": "Muffins",
+    "price": 18.00,
+    "description": "A half-dozen bakery-style muffins loaded with chocolate chips and a golden, domed top.",
+    "image": "/images/products/chocolate-chip-muffins.svg",
+    "available": true,
+    "featured": false,
+    "allergens": ["gluten", "dairy", "eggs"]
+  },
+  {
+    "id": "banana-bread",
+    "name": "Banana Bread",
+    "category": "Breads",
+    "price": 12.00,
+    "description": "A moist, richly spiced loaf made with ripe bananas. Great on its own or toasted with butter.",
+    "image": "/images/products/banana-bread.svg",
+    "available": true,
+    "featured": false,
+    "allergens": ["gluten", "dairy", "eggs", "tree nuts"]
+  }
+]
