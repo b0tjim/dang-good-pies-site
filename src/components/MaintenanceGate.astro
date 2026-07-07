@@ -1,0 +1,113 @@
+---
+import { maintenance } from "../config/maintenance";
+import site from "../../data/site.json";
+---
+
+<div id="maintenance-gate" class="maintenance-gate">
+  <div class="maintenance-gate__card">
+    <p class="maintenance-gate__brand">{site.businessName}</p>
+    <h1>{maintenance.heading}</h1>
+    <p>{maintenance.message}</p>
+    <form id="maintenance-form" class="maintenance-gate__form" autocomplete="off">
+      <label for="maintenance-password" class="visually-hidden">Password</label>
+      <input
+        id="maintenance-password"
+        name="password"
+        type="password"
+        placeholder="Password"
+        autocomplete="off"
+      />
+      <button type="submit" class="button">Enter</button>
+    </form>
+    <p id="maintenance-error" class="maintenance-gate__error" hidden>
+      That's not it, try again.
+    </p>
+  </div>
+</div>
+
+<script define:vars={{ password: maintenance.password }}>
+  const STORAGE_KEY = "dgp-maintenance-unlocked";
+  const gate = document.getElementById("maintenance-gate");
+  const form = document.getElementById("maintenance-form");
+  const input = document.getElementById("maintenance-password");
+  const errorEl = document.getElementById("maintenance-error");
+
+  function unlock() {
+    localStorage.setItem(STORAGE_KEY, "1");
+    document.documentElement.classList.add("dgp-unlocked");
+    gate?.remove();
+  }
+
+  if (localStorage.getItem(STORAGE_KEY) === "1") {
+    unlock();
+  }
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (input instanceof HTMLInputElement && input.value === password) {
+      unlock();
+    } else {
+      if (errorEl) errorEl.hidden = false;
+      if (input instanceof HTMLInputElement) input.value = "";
+    }
+  });
+</script>
+
+<style>
+  :global(html.dgp-unlocked) #maintenance-gate {
+    display: none;
+  }
+
+  :global(html.maintenance-lock:not(.dgp-unlocked)) {
+    overflow: hidden;
+  }
+
+  .maintenance-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg);
+    padding: var(--space-md);
+  }
+
+  .maintenance-gate__card {
+    max-width: 420px;
+    text-align: center;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: var(--space-lg);
+  }
+
+  .maintenance-gate__brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-xs);
+  }
+
+  .maintenance-gate__form {
+    display: flex;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+  }
+
+  .maintenance-gate__form input {
+    flex: 1;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+  }
+
+  .maintenance-gate__error {
+    color: var(--color-accent-dark);
+    font-size: 0.9rem;
+    margin-top: var(--space-sm);
+    margin-bottom: 0;
+  }
+</style>

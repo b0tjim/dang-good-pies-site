@@ -2,7 +2,9 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieNotice from "../components/CookieNotice.astro";
+import MaintenanceGate from "../components/MaintenanceGate.astro";
 import site from "../../data/site.json";
+import { maintenance } from "../config/maintenance";
 import "../styles/global.css";
 
 interface Props {
@@ -14,15 +16,25 @@ const { title, description = site.shortBlurb } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class={maintenance.enabled ? "maintenance-lock" : ""}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} | {site.businessName}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {
+      maintenance.enabled && (
+        <script is:inline>
+          if (localStorage.getItem("dgp-maintenance-unlocked") === "1") {
+            document.documentElement.classList.add("dgp-unlocked");
+          }
+        </script>
+      )
+    }
   </head>
   <body>
+    {maintenance.enabled && <MaintenanceGate />}
     <Header />
     <main>
       <slot />

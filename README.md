@@ -123,6 +123,24 @@ Open `src/styles/global.css` and edit the CSS variables at the top of the file (
 `--color-accent`, `--font-heading`, `--space-md`, etc. Every page and component pulls from these
 same variables, so changing a value there updates the whole site.
 
+## Under Construction mode
+
+While you're uploading photos, editing descriptions, or otherwise mid-change, you can put the
+whole site behind a password-locked "Under Construction" screen:
+
+1. Open `src/config/maintenance.ts`.
+2. `enabled: true` turns it on for every page, `enabled: false` turns it off. This ships turned
+   **on** with the password set to `poop` — change `password` to whatever you like.
+3. Rebuild/redeploy for the change to take effect.
+
+Visitors see a lock screen with a password field until they enter the right password, at which
+point their browser remembers it (so you don't have to re-enter it on every page while you work).
+A different browser, device, or incognito window will be locked again until unlocked there too.
+
+**This is a convenience gate, not real security.** It's plain client-side JavaScript with no
+backend, so the password is visible to anyone who views the page source — it's meant to keep
+casual visitors from browsing a half-edited site, not to protect anything sensitive.
+
 ## Legal pages and analytics
 
 `data/pages.json` includes Privacy Policy and Terms of Service entries, and both pages
