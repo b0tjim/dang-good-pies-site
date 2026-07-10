@@ -7,7 +7,7 @@
 // To turn it on: set `enabled` to true. To turn it back off when you're
 // done editing: set it back to false. No other files need to change.
 export const maintenance = {
-  enabled: true,
+  enabled: false,
   password: "poop",
   heading: "Under Construction",
   message: "We're updating the menu and site right now. Check back soon!",
