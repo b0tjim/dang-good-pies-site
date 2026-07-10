@@ -1,23 +1,9 @@
 [
   {
-    "id": "summer-farmers-market",
-    "title": "Riverside Farmers Market",
-    "date": "2026-07-18",
-    "location": "Riverside Park, Main St & 3rd Ave",
-    "description": "Stop by the stand for whole pies, cookies, and muffins. Cash and card both welcome, first come first served while supplies last."
-  },
-  {
-    "id": "late-summer-popup",
-    "title": "Late Summer Pie Pop-Up",
-    "date": "2026-08-09",
-    "location": "Dang Good Pies Front Porch (address on order confirmation)",
-    "description": "A porch pickup event for pre-ordered pies. Pre-orders open two weeks ahead through the contact info on the About page."
-  },
-  {
-    "id": "fall-preorder-window",
-    "title": "Fall Holiday Pie Pre-Orders Open",
-    "date": "2026-10-01",
-    "location": "Order by phone or email, pickup details sent after ordering",
-    "description": "Pre-order windows for Thanksgiving and other fall gatherings open this week. Get in early, slots are limited and fill up fast."
+    "id": "crg-pop-up",
+    "title": "CRG ATL Pop-up",
+    "date": "2026-08-02 : 11am-4pm",
+    "location": "3701 Presidential Pkwy, Atlanta, GA 30340",
+    "description": "Stop by the stand for mini pies, cookies, and banana bread. Cash and card both welcome, first come first served while supplies last."
   }
 ]
