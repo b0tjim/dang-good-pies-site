@@ -93,7 +93,7 @@
     "category": "Pie",
     "price": 8.00,
     "description": "Blackberry honey pie brings a rich honey upgrade to the traditional blackberry pie with buckwheat honey.",
-    "image": "/images/products/blueberry-pie.svg",
+    "image": "/images/products/blackberry-honey-pie.svg",
     "available": true,
     "featured": true,
     "allergens": ["gluten", "dairy", "eggs"]
