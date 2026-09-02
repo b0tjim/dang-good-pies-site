@@ -84,10 +84,13 @@ Open `data/events.json` and add/edit/remove an object in the array:
   "id": "spring-market",
   "title": "Spring Farmers Market",
   "date": "2027-04-10",
+  "time": "9am-1pm",
   "location": "Riverside Park, Main St & 3rd Ave",
   "description": "One or two sentences about what to expect."
 }
 ```
+
+`date` must be a plain `YYYY-MM-DD` string (no time in it) or the Events page will show "Invalid Date". `time` is optional and displayed as free text next to the date.
 
 Events on the Events page are sorted by date automatically, so order in the file doesn't matter.
 

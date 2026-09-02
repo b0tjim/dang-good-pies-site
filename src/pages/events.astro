@@ -26,7 +26,10 @@ function formatDate(dateStr: string) {
         {
           sortedEvents.map((event) => (
             <article class="card event-card">
-              <p class="event-card__date">{formatDate(event.date)}</p>
+              <p class="event-card__date">
+                {formatDate(event.date)}
+                {event.time && ` : ${event.time}`}
+              </p>
               <h2>{event.title}</h2>
               <p class="event-card__location">{event.location}</p>
               <p>{event.description}</p>
