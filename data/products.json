@@ -33,13 +33,13 @@
     "allergens": ["gluten", "dairy", "eggs"]
   },
   {
-    "id": "strawberry-lemonade-pie",
-    "name": "Strawberry Lemonade Pie",
+    "id": "raspberry-lemonade-pie",
+    "name": "Raspberry Lemonade Pie",
     "category": "Pie",
     "price": 8.00,
-    "description": "Our spin on a tart strawberry pie! Every bite tastes like you're sipping on a homemade strawberry lemonade.",
+    "description": "Our spin on a tart raspberry pie! Every bite tastes like you're sipping on a homemade strawberry lemonade.",
     "image": "/images/products/strawberry-lemonade-pie.svg",
-    "available": true,
+    "available": false,
     "featured": true,
     "allergens": ["gluten", "dairy", "eggs"]
   },
@@ -72,7 +72,7 @@
     "price": 16.00,
     "description": "A pack of 8 bakery-style muffins loaded with chocolate chips and a golden, domed top.",
     "image": "/images/products/chocolate-chip-muffins.svg",
-    "available": true,
+    "available": false,
     "featured": false,
     "allergens": ["gluten", "dairy", "eggs"]
   },
@@ -86,5 +86,16 @@
     "available": true,
     "featured": false,
     "allergens": ["gluten", "dairy", "eggs", "tree nuts"]
+  },
+  {
+    "id": "blackberry-honey-pie",
+    "name": "Blackberry Honey Pie",
+    "category": "Pie",
+    "price": 8.00,
+    "description": "Blackberry honey pie brings a rich honey upgrade to the traditional blackberry pie with buckwheat honey.",
+    "image": "/images/products/blueberry-pie.svg",
+    "available": true,
+    "featured": true,
+    "allergens": ["gluten", "dairy", "eggs"]
   }
 ]
